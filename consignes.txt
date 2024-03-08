@@ -1,0 +1,132 @@
+----------------------------------------------------------------------------
+----------------------Cahier des charges projet RH--------------------------
+--------------------------PRINCIPES GENERAUX--------------------------------
+
+Les entreprises se connectent sur une application qui leur permet d'accéder 
+à une liste de leurs employés. L'utilisateur en l'occurence la personne qui 
+gère les ressources humaines doit pouvoir sur cette application :
+
+    - Ajouter des employés (CREATE)
+    - Afficher la liste de tous les employés (READ)
+    - Modifier des employés (UPDATE)
+    - Supprimer des employés (DELETE)
+    - Petit bonus, l'utilisateur doit pouvoir ajouter un blâme à un employé.
+
+Des fonctionnalités supplémentaires peuvent être ajoutées à votre guise, il y 
+en a certaines que vous pourrez trouver dans la partie 9) FONCTIONNALITES OPTIONNELLES 
+à la fin de ce document. Lisez bien l'ensemble des consignes avant de démarrer.
+
+Pour réaliser ce projet vous devrez créer une application monobloc à l'aide des 
+technologies et packages suivants :
+
+    - NodeJs
+    - Mongoose
+    - Express
+    - Express-session (pour gérer la connexion)
+    - Bcrypt (pour crypter et comparer les mots de passe)
+    - Twig
+    - authguard
+    - Multer
+-----------------------------------------------------------------------------
+
+--------------------------FONCTIONNALITES------------------------------------
+Voici les principales fonctionnalités de cette application de gestion des ressources humaines.
+
+1) INSCRIPTION :
+
+Des utilisateurs doivent pouvoir s'inscrire pour utiliser l'application.
+Les utilisateurs non-inscrits n'ont accés qu'à la page de login et inscription.
+Le formulaire d'inscription doit obligatoirement (required) contenir les champs suivants :
+    - Nom
+    - Numéro de SIRET
+    - Adresse mail
+    - Nom du directeur
+    - Mot de passe (crypté en base de données)
+-----------------------------------------------------------------------------
+
+2) CONNEXION :
+
+Les utilisateurs doivent pouvoir se connecter après s'être inscrits.
+Les informations qu'ils doivent fournir pour se connecter sont :
+    - Adresse mail
+    - Mot de passe
+
+Une fois connectés les utilisateurs doivent être redirigés vers la page principale de l'application.
+-----------------------------------------------------------------------------
+
+3) PAGE PRINCIPALE (READ) :
+
+Sur la page principale, les utilisateurs doivent avoir accés à un listing de tous leurs employés et de leurs
+informations respectives.
+Ces informations sont les suivantes :
+    - Photo
+    - Nom
+    - fonction
+    - Nombre de blâme
+
+Dans ce listing et pour chaque employé, l'utilisateur doit pouvoir modifier et supprimer la fiche concernée.
+Si l'utilisateur n'a pas encore ajouté d'employé dans sa liste, un message l'invite à le faire.
+A partir de cette page, l'utilisateur doit pouvoir ajouter un employé.
+Des fonctionnalités optionnelles peuvent être ajoutées à la page principale, vous trouverez la liste de celles-ci 
+à la fin de ce document.
+-----------------------------------------------------------------------------
+
+4) AJOUTER UN EMPLOYE (CREATE) :
+
+L'utilisateur doit pouvoir ajouter un employé.
+Les informations obligatoires (required) à fournir sur l'employé sont :
+    - Photo
+    - Nom
+    - fonction
+    - Nombre de blâme
+
+Quand le formulaire d'ajout est soumis, l'utilisateur doit être redirigé vers la page principale.
+-----------------------------------------------------------------------------
+
+5) MODIFIER UN EMPLOYE (UPLOAD) :
+L'utilisateur doit pouvoir modifier un employé existant.
+Les informations obligatoires (required) à fournir lors de la modification de l'employé sont :
+    - Photo
+    - Nom
+    - Fonction
+    - Nombre de blâme
+
+Dans les champs texte du formulaire de modification doivent apparaître les informations relatives
+à l'employé que l'utilisateur souhaite modifier.
+Lorsque le formulaire est soumis, l'utilisateur doit être redirigé vers la page principale.
+-----------------------------------------------------------------------------
+
+6) SUPPRIMER UN EMPLOYE (DELETE) :
+
+L'utilisateur doit pouvoir supprimer un employé existant.
+Avant la suppression définitive de l'employé, un message doit apparaître demandant confirmation avec
+pour options "OUI" ou "NON".
+-----------------------------------------------------------------------------
+
+7) BLAMER UN EMPLOYE :
+
+L'utilisateur doit avoir la possibilité d'ajouter un blâme a un employé à l'aide d'un bouton sur la 
+fiche de l'employé. Lorsque le nombre de blâme atteint la valeur 3, la fiche doit automatiquement 
+être supprimée de la base de données.
+-----------------------------------------------------------------------------
+
+8) RECHERCHER UN EMPLOYE :
+
+Sur la page principale, à l'aide d'une barre de recherche l'utilisateur doit pouvoir effectuer 
+une recherche par nom dans la base de données pour afficher un employé.
+-----------------------------------------------------------------------------
+
+9) FONCTIONNALITES OPTIONNELLES :
+
+    a: Filtrer les employés :
+        L'utilisateur doit pouvoir filtrer les employés par fonction.
+        Dans la barre de recherche de la page principale, ajoutez une fonction filtrer.
+    
+    b: Interface multilingue :
+        Faites en sorte que l'application soit disponible en français et en anglais.
+    
+    c: Déconnexion :
+        L'utilisateur doit pouvoir se deconnecter à partir de la page principale. Une fois deconnecté 
+        il doit être redirigé vers la page d'inscription/connexion.
+-----------------------------------------------------------------------------
+

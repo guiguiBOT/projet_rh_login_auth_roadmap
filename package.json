@@ -1,0 +1,21 @@
+{
+  "name": "projet_rh",
+  "version": "1.0.0",
+  "description": "projet_rh_ecole_ri7",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "lb",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.2.1",
+    "twig": "^1.17.1",
+    "validator": "^13.11.0"
+  }
+}
